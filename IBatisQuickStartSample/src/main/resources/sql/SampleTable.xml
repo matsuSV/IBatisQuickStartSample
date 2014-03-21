@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ibatis.sample">
+
+	<select id="select_QT_SAMPLE_170_EMPLOYEE" 
+			parameterClass="java.lang.String"
+			resultClass="com.ibatis.quickstart.sample.bean.SampleTable">
+		<![CDATA[
+			select 
+				EMPNO,
+				FULLNAME,
+				SEX,
+				BIRTHDATE,
+				SALARY
+			from 
+				QT_SAMPLE_170_EMPLOYEE
+			where 
+				EMPNO like #empno:c#
+			order by EMPNO
+		]]>
+	</select>
+
+	<insert id="insert_QT_SAMPLE_170_EMPLOYEE">
+		<![CDATA[
+			insert into
+				QT_SAMPLE_170_EMPLOYEE
+			values
+				(
+					'qt_sample_1000',
+					'Query 太郎',
+					'クエリーたろう',
+					'0501234567',
+					'A',
+					current_date,
+					current_date,
+					300000,
+					900000,
+					'123歳、埼玉県出身、重婚、血液型は不明、カレーの食べ方は両手食い',
+					current_timestamp,
+					current_timestamp,
+					current_timestamp
+				)
+		]]>
+	</insert>
+
+</sqlMap>
